@@ -46,8 +46,8 @@ CHESS-ENGINE-MAINS/
 
 ## Mô tả bài toán và thuật toán
 
-### Dữ liệu
-Lấy từ https://database.nikonoel.fr/ (1 web có các thông tin và data về hàng trăm và hàng triệu game từ các trận đấu từ 2000+ elo) file bọn mình chọn ở phần mô tả là "As a direct download (582 Mb, .7z format which you can open natively in linux or with 7-zip on windows)",do không thể commit data/pgn lên github được nên sau khi clone về phải tải dữ liệu này về và thêm mục pgn trong data chứa các file pgn dữ liệu ván đầu vào 
+### Dữ liệu 
+Lấy từ https://database.nikonoel.fr/ (1 web có các thông tin và data về hàng trăm và hàng triệu game từ các trận đấu từ 2000+ elo) file bọn mình chọn ở phần mô tả là ** As a direct download (582 Mb, .7z format which you can open natively in linux or with 7-zip on windows **,do không thể commit data/pgn lên github được nên sau khi clone về phải tải dữ liệu này về và thêm mục pgn trong data chứa các file pgn dữ liệu ván đầu vào 
 
 ### Huấn luyện mô hình (Model Training)
 
