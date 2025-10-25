@@ -6,7 +6,7 @@
 - Xây dựng engine chơi cờ có thể tự học từ dữ liệu thực hoặc tự chơi (self-play).
 
 ##  Cấu trúc thư mục
-
+```
 CHESS-ENGINE-MAINS/
 │
 ├── data/
@@ -15,13 +15,13 @@ CHESS-ENGINE-MAINS/
 │
 ├── engines/
 │   ├── tensorflow/
-│   │   └── train_and_predict.ipynb    # Notebook huấn luyện và dự đoán bằng TensorFlow
+│   │   └── train_and_predict.ipynb    # Notebook huấn luyện và dự đoán bằng TensorFlow ( cài này để chạy test thôi ạ, elo cờ vua khá thấp-khoảng 500-600)
 │   │
 │   └── torch/
 │       ├── __pycache__/               # Thư mục cache tự động của Python
 │       ├── auxiliary_func.py          # Các hàm tiện ích hỗ trợ xử lý bàn cờ
 │       ├── dataset.py                 # Chuẩn bị dữ liệu huấn luyện từ file PGN
-│       ├── main.ipynb                 # Notebook chạy thử hoặc demo AI cờ vua
+│       ├── main.ipynb                 # Notebook chạy thử hoặc demo AI cờ vua (AI elo 1400-1500)
 │       ├── model.py                   # Định nghĩa kiến trúc mạng neural (PyTorch)
 │       └── train.ipynb                # Notebook huấn luyện mô hình PyTorch
 │
@@ -39,12 +39,15 @@ CHESS-ENGINE-MAINS/
 │   └── TORCH_100EPOCHS.pth            # Trọng số mô hình huấn luyện PyTorch
 │
 ├── .gitignore                         # Bỏ qua các file/thư mục khi commit Git
-├── README.md                          # Mô tả dự án (tài liệu này)
+├── README.md                          # Mô tả dự án 
 ├── requirements.txt                   # Danh sách thư viện Python cần thiết
 └── setup.cfg                          # Cấu hình cho dự án hoặc package
-
+```
 
 ## Mô tả bài toán và thuật toán
+
+### Dữ liệu
+Lấy từ https://database.nikonoel.fr/ (1 web có các thông tin và data về hàng trăm và hàng triệu game từ các trận đấu từ 2000+ elo)
 
 ### Huấn luyện mô hình (Model Training)
 
@@ -53,7 +56,8 @@ Quá trình huấn luyện sử dụng **bộ dữ liệu cờ vua (ChessDataset
 Mô hình được triển khai trên **GPU (nếu có)** để tăng tốc tính toán
 
 Các thành phần chính trong quá trình huấn luyện:
-- **Hàm mất mát (Loss function):** `CrossEntropyLoss()` – đo độ sai lệch giữa đầu ra mô hình và nhãn thực tế.  
+- **Hàm mất mát (Loss function):** `CrossEntropyLoss()` – đo độ sai lệch giữa đầu ra mô hình và nhãn thực tế.
+- 
 - **Bộ tối ưu hóa (Optimizer):** `Adam` với `learning_rate = 0.0001`, giúp điều chỉnh trọng số thông qua lan truyền ngược.  
 - **Số vòng lặp huấn luyện (Epochs):** `50`.  
 - **Cắt gradient (Gradient Clipping):** `torch.nn.utils.clip_grad_norm_` được áp dụng để tránh hiện tượng gradient explosion.
@@ -165,6 +169,11 @@ Nếu trả về `True`, nghĩa là mô hình có thể chạy trên GPU.
   
 
 ---
+
+## Contributors
+- **Lê Tuấn Anh** – Xây dựng mô hình PyTorch, thiết kế cấu trúc dữ liệu và huấn luyện mạng neural  
+- **Nguyễn Minh Đức** – Thu thập dữ liệu, Giao diện chơi cờ bằng Pygame, tích hợp mô hình AI  
+
 
 
 
